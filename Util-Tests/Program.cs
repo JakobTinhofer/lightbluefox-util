@@ -15,6 +15,15 @@ namespace Util_Tests
                 Console.WriteLine("ColorTests succeeded.");
             else
                 Console.WriteLine("ColorTests failed.");
+
+
+
+            Console.WriteLine("Running logger tests.");
+            if (LoggerTest())
+                Console.WriteLine("LoggerTests succeeded.");
+            else
+                Console.WriteLine("LoggerTests failed.");
+
         }
 
         private static bool ColorTests()
@@ -60,6 +69,25 @@ namespace Util_Tests
             else
                 Console.WriteLine("[OK]");
 
+
+            return success;
+        }
+
+        private static bool LoggerTest()
+        {
+            bool success = true;
+
+            Console.Write("Creating ConsoleLogger....");
+            ConsoleLogWriter w = new ConsoleLogWriter(new LogLevel(LogLevel.INFO, LogLevel.FATAL));
+            Console.WriteLine("[OK]");
+
+            Console.Write("Adding writer to Logger...");
+            Logger.AddLogWriter(w);
+            Console.WriteLine("[OK]");
+
+            Console.Write("Logging to console.");
+            Logger.Log(LogLevel.WARNING, "FAILED");
+            Logger.Log(LogLevel.INFO, "OK");
 
             return success;
         }

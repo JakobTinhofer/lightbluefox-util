@@ -24,7 +24,7 @@ namespace LightBlueFox.Util.Logging
         /// <param name="a">The loglevel to check for</param>
         public bool Contains(LogLevel a)
         {
-            if (combinedLogLevels is null && combinedLogLevels.Contains(a))
+            if (!(combinedLogLevels is null) && combinedLogLevels.Contains(a))
                 return true;
             else
                 return false;
@@ -51,7 +51,7 @@ namespace LightBlueFox.Util.Logging
             Printable = true;
         }
 
-        private LogLevel(params LogLevel[] args)
+        public LogLevel(params LogLevel[] args)
         {
 
 
