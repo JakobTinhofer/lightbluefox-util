@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LightBlueFox.Util.Logging
 {
@@ -26,11 +25,13 @@ namespace LightBlueFox.Util.Logging
         /// <param name="format">The message to print.</param>
         public static void Log(LogLevel lvl, string str)
         {
-                foreach (var w in Writers)
-                {
-                    if (w.LoggedLevels.Contains(lvl))
-                        w.QueueOutput(lvl, str);
-                }
+            if (!lvl.Printable)
+                throw new InvalidOperationException("You cannot use combined log levels for output!");
+            foreach (var w in Writers)
+            {
+                if (w.LoggedLevels.Contains(lvl))
+                    w.QueueOutput(lvl, str);
+            }
         }
 
 
@@ -45,5 +46,5 @@ namespace LightBlueFox.Util.Logging
         }
     }
 
-    
+
 }

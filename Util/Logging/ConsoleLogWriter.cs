@@ -1,38 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace LightBlueFox.Util.Logging
 {
     public class ConsoleLogWriter : BaseLogWriter
     {
-        private static ManualResetEvent consoleAvail = new ManualResetEvent(true);
+        private static AutoResetEvent consoleAvail = new AutoResetEvent(true);
 
         public override bool isColorAllowed()
         {
             return true;
         }
 
-        public override async Task QueueOutput(LogLevel lvl, string output)
+        public override void QueueOutput(LogLevel lvl, string output)
         {
-            await Task.Run(() => {
-                
-                if (Enabled)
-                {
-                    consoleAvail.WaitOne();
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("[");
-                    Console.ForegroundColor = lvl.Color.ToClosestConsoleColor();
-                    Console.Write("]");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(" " + output);
-                    consoleAvail.Set();
-                }
-            });
             
+            if (Enabled)
+            {
+                consoleAvail.WaitOne();
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("[");
+                Console.ForegroundColor = lvl.Color.ToClosestConsoleColor();
+                Console.Write(lvl.Tag);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("]");
+                Console.WriteLine(" " + output);
+                consoleAvail.Set();
+            }
+
         }
 
 
