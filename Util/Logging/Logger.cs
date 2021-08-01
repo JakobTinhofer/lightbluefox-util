@@ -15,26 +15,22 @@ namespace LightBlueFox.Util.Logging
         /// <param name="format">A format string.</param>
         /// <param name="args">Arguments for the format string.</param>
         /// <returns></returns>
-        public static async Task Log(LogLevel lvl, string format, params object[] args)
+        public static void Log(LogLevel lvl, string format, params object[] args)
         {
-            await Log(lvl, string.Format(format, args));
+            Log(lvl, string.Format(format, args));
         }
         /// <summary>
         /// Logs a message to the curresponding log writers.
         /// </summary>
         /// <param name="lvl">The log level of the message.</param>
         /// <param name="format">The message to print.</param>
-        public static async Task Log(LogLevel lvl, string str)
+        public static void Log(LogLevel lvl, string str)
         {
-            await Task.Run(async () => {
-                
-               
                 foreach (var w in Writers)
                 {
                     if (w.LoggedLevels.Contains(lvl))
-                        await w.QueueOutput(lvl, str);
+                        w.QueueOutput(lvl, str);
                 }
-            });
         }
 
 
