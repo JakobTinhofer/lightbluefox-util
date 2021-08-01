@@ -5,7 +5,7 @@ namespace LightBlueFox.Util.Logging
 {
     public class ConsoleLogWriter : BaseLogWriter
     {
-        public static AutoResetEvent ConsoleAvailable = new AutoResetEvent(true);
+        public static ManualResetEvent ConsoleAvailable = new ManualResetEvent(true);
 
         public override bool isColorAllowed()
         {
