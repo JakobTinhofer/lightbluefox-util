@@ -17,7 +17,7 @@ namespace LightBlueFox.Util.Logging
             
             if (Enabled)
             {
-                consoleAvail.WaitOne();
+                ConsoleAvailable.WaitOne();
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("[");
                 Console.ForegroundColor = lvl.Color.ToClosestConsoleColor();
@@ -25,7 +25,7 @@ namespace LightBlueFox.Util.Logging
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("]");
                 Console.WriteLine(" " + output);
-                consoleAvail.Set();
+                ConsoleAvailable.Set();
             }
 
         }
