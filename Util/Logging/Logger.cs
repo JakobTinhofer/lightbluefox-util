@@ -43,7 +43,7 @@ namespace LightBlueFox.Util.Logging
         /// Registers a new writer.
         /// </summary>
         /// <param name="writer"></param>
-        public static void AddLoggWriter(BaseLogWriter writer)
+        public static void AddLogWriter(BaseLogWriter writer)
         {
             Writers.Add(writer);
         }

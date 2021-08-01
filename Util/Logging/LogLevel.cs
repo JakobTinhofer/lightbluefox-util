@@ -85,11 +85,13 @@ namespace LightBlueFox.Util.Logging
         /// Used whenever there is an error, but the program can still continue.
         /// </summary>
         public static readonly LogLevel ERROR = new LogLevel(new Color("#fa350c")  ,"ERROR");
-
         /// <summary>
         /// Used when there is an error so severe that the program cannot continue normally.
         /// </summary>
         public static readonly LogLevel FATAL = new LogLevel(new Color("#aa0000")  ,"FATAL");
-
+        /// <summary>
+        /// Combines all log levels.
+        /// </summary>
+        public static readonly LogLevel ALL = new LogLevel(FATAL, ERROR, WARNING, DEBUG, INFO);
     }
 }
