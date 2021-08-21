@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Util
+namespace LightBlueFox.Util
 {
     /// <summary>
     /// The internal type for <see cref="ProbabilityList{T}"/>

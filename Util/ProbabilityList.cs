@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Util
+namespace LightBlueFox.Util
 { 
     /// <summary>
     /// A list of items and their probabilities. Allows you to add and remove items at all time and then get a random one weighted by their exact probability.
