@@ -30,7 +30,7 @@ namespace LightBlueFox.Util
         /// </summary>
         public bool Check()
         {
-            if ((StartingPoint + Duration) >= DateTime.Now)
+            if ((StartingPoint + Duration) <= DateTime.Now)
                 return true;
             return false;
         }

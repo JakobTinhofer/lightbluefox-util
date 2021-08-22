@@ -1,4 +1,5 @@
-﻿using LightBlueFox.Util.Logging;
+﻿using LightBlueFox.Util;
+using LightBlueFox.Util.Logging;
 using LightBlueFox.Util.Types;
 using System;
 
@@ -8,6 +9,7 @@ namespace Util_Tests
     {
         static void Main(string[] args)
         {
+            CooldownTests();
             Console.WriteLine("Starting tests.");
 
             Console.WriteLine("Running color tests.");
@@ -89,6 +91,17 @@ namespace Util_Tests
             Logger.Log(LogLevel.WARNING, "FAILED");
             Logger.Log(LogLevel.INFO, "OK");
 
+            return success;
+        }
+
+        private static bool CooldownTests()
+        {
+            bool success = true;
+
+            Console.WriteLine("Creating long cooldown");
+            LongCooldown c = new LongCooldown(new TimeSpan(0, 0, 30));
+            Console.WriteLine(c.Trigger());
+            Console.WriteLine(c.Trigger());
             return success;
         }
     }
