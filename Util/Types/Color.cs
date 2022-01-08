@@ -194,6 +194,13 @@ namespace LightBlueFox.Util.Types
             }
             return ret;
         }
+        /// <summary>
+        /// Converts the Color to a hex string.
+        /// </summary>
+        public override string ToString()
+        {
+            return a == 255 ? HexRGB : HexRGBA;
+        }
         #endregion
 
     }
