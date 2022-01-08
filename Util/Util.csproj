@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>LightBlueFox.Util</RootNamespace>
+    <AssemblyName>LightBlueFox.Util</AssemblyName>
   </PropertyGroup>
 
 </Project>
