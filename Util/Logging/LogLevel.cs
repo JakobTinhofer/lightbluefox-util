@@ -105,7 +105,7 @@ namespace LightBlueFox.Util.Logging
         /// <summary>
         /// Combines all log levels.
         /// </summary>
-        public static readonly LogLevel ALL = new LogLevel(FATAL, ERROR, WARNING, DEBUG, INFO);
+        public static readonly LogLevel ALL = new LogLevel(FATAL, ERROR, WARNING, DEBUG, INFO, SUCCESS);
 
         #endregion
     }
