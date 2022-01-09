@@ -101,7 +101,7 @@ namespace LightBlueFox.Util.Logging
         /// <summary>
         /// Used when an operation finished successfully
         /// </summary>
-        public static readonly LogLevel SUCCESS = new LogLevel(new Color("#fc0324"), "SUCCESS");
+        public static readonly LogLevel SUCCESS = new LogLevel(new Color("#24fc03"), "SUCCESS");
         /// <summary>
         /// Combines all log levels.
         /// </summary>
