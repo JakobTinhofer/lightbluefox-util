@@ -82,10 +82,10 @@ namespace LightBlueFox.Util.Types
         public override int GetHashCode()
         {
             var hashCode = 397963109;
-            hashCode = hashCode * -1521134295 + r.GetHashCode();
-            hashCode = hashCode * -1521134295 + g.GetHashCode();
-            hashCode = hashCode * -1521134295 + b.GetHashCode();
-            hashCode = hashCode * -1521134295 + a.GetHashCode();
+            hashCode = (hashCode * -1521134295) + r.GetHashCode();
+            hashCode = (hashCode * -1521134295) + g.GetHashCode();
+            hashCode = (hashCode * -1521134295) + b.GetHashCode();
+            hashCode = (hashCode * -1521134295) + a.GetHashCode();
             return hashCode;
         }
         #endregion
@@ -202,6 +202,5 @@ namespace LightBlueFox.Util.Types
             return a == 255 ? HexRGB : HexRGBA;
         }
         #endregion
-
     }
 }
